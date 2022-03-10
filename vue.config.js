@@ -6,6 +6,7 @@ module.exports = {
     'hot': true,
     'port': 7000,
     'open': false,
+    historyApiFallback: true,
     'proxy': {
       '/api': {
         'target': process.env.VUE_APP_PROXY_TARGET,

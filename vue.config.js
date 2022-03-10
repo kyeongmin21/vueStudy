@@ -34,15 +34,15 @@ module.exports = {
     performance: {
       hints: false
     },
-/*    optimization: {
-      splitChunks: {
-        minSize: 10000,
-        maxSize: 250000,
-      }
-    },
-    output: {
-      filename: '[name].[hash].bundle.js'
-    }*/
+    /*    optimization: {
+          splitChunks: {
+            minSize: 10000,
+            maxSize: 250000,
+          }
+        },
+        output: {
+          filename: '[name].[hash].bundle.js'
+        }*/
   },
   transpileDependencies: [
   ]

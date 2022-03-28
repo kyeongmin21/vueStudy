@@ -1,10 +1,15 @@
 <template>
   <div>
     <div>{{ num }}</div>
-    <button @click="update"> 버튼</button>
+    <button @click="update">숫자 증가 버튼</button>
     <br><br>
+
     <div>{{ human }}</div>
-    <button @click="reverseName">버튼</button>
+    <button @click="reverseName">이름 뒤집기 버튼</button>
+    <br><br>
+
+    <div>{{ bool }}</div>
+    <button @click="flag">boolean 버튼</button>
   </div>
 </template>
 
@@ -14,6 +19,7 @@ export default {
   props: {
     num: Number,
     human: String,
+    bool: Boolean,
   },
   data() {
     return {};
@@ -24,6 +30,9 @@ export default {
     },
     reverseName() {
       this.$emit('reverse', this.human)
+    },
+    flag() {
+      this.$emit('onoff', this.bool)
     }
   },
 };

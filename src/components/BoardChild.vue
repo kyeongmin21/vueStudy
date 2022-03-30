@@ -10,6 +10,9 @@
 
     <div>{{ bool }}</div>
     <button @click="flag">boolean 버튼</button>
+    <br><br>
+
+    <div>{{ str }}</div>
   </div>
 </template>
 
@@ -20,6 +23,7 @@ export default {
     num: Number,
     human: String,
     bool: Boolean,
+    str: String
   },
   data() {
     return {};

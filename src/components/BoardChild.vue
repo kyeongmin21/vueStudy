@@ -13,6 +13,7 @@
     <br><br>
 
     <div>{{ str }}</div>
+    <button @click="push">str 버튼</button>
   </div>
 </template>
 
@@ -37,6 +38,9 @@ export default {
     },
     flag() {
       this.$emit('onoff', this.bool)
+    },
+    push() {
+      this.$emit('pushEvent', this.str)
     }
   },
 };

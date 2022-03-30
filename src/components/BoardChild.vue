@@ -37,7 +37,7 @@ export default {
       this.$emit('reverse', this.human)
     },
     flag() {
-      this.$emit('onoff', this.bool)
+      this.$emit('onOff', this.bool)
     },
     push() {
       this.$emit('pushEvent', this.str)

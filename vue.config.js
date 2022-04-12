@@ -2,24 +2,11 @@ const path = require('path')
 module.exports = {
   lintOnSave: false,
   'outputDir': '../dist',
-  'devServer': {
-    'hot': true,
-    'port': 7000,
-    'open': false,
-    historyApiFallback: true,
-    'proxy': {
-      '/api': {
-        'target': process.env.VUE_APP_PROXY_TARGET,
-        'changeOrigin': true,
-        'pathRewrite': {
-          '^/api': ''
-        },
-        'logLevel': 'debug'
-      }
-    },
-    'inline': true,
-    // error display on the console
-    'overlay': false,
+  devServer: {
+    host: 'localhost',
+    hot: true,
+    disableHostCheck: true,
+    https: false
   },
   configureWebpack: {
     module: {

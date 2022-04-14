@@ -19,4 +19,5 @@ export default {
 
 <style>
 @import "/css/style.css";
+@import "/css/reset.css";
 </style>

@@ -1,19 +1,19 @@
 <template>
   <div>
     <div>{{ num }}</div>
-    <button @click="update">숫자 증가 버튼</button>
+    <b-button variant="outline-primary" @click="update">숫자 증가 버튼</b-button>
     <br><br>
 
     <div>{{ human }}</div>
-    <button @click="reverseName">이름 뒤집기 버튼</button>
+    <b-button variant="outline-primary" @click="reverseName">이름 뒤집기 버튼</b-button>
     <br><br>
 
     <div>{{ bool }}</div>
-    <button @click="flag">boolean 버튼</button>
+    <b-button variant="outline-primary" @click="flag">boolean 버튼</b-button>
     <br><br>
 
     <div>{{ str }}</div>
-    <button @click="push">str 버튼</button>
+    <b-button variant="outline-primary" @click="push">str 버튼</b-button>
   </div>
 </template>
 

@@ -31,6 +31,7 @@
       <li><router-link to="/chat">22. Chat</router-link></li>
       <li><router-link to="/login">23. Login</router-link></li>
       <li><router-link to="/axios">24. Axios</router-link></li>
+      <li><router-link to="/promise">25. Promise</router-link></li>
 
     </ul>
   </div>

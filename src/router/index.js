@@ -130,6 +130,11 @@ const routes = [
     name: 'Axios',
     component: () => import(/* webpackChunkName: "axios" */ '@/views/Axios.vue')
   },
+  {
+    path: '/promise',
+    name: 'Promise',
+    component: () => import(/* webpackChunkName: "promise" */ '@/views/Promise.vue')
+  }
 ]
 
 const router = new VueRouter({

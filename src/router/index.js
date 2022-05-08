@@ -131,9 +131,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "axios" */ '@/views/Axios.vue')
   },
   {
-    path: '/promise',
-    name: 'Promise',
-    component: () => import(/* webpackChunkName: "promise" */ '@/views/Promise.vue')
+    path: '/game',
+    name: 'Game',
+    component: () => import(/* webpackChunkName: "game" */ '@/views/Game.vue')
   }
 ]
 

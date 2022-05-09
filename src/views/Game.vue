@@ -45,9 +45,11 @@
       <div class="small-6 columns text-center">
         <div class="row">
           <div class="small-8 small-offset-2 columns text-center">
-            <label class="radio-label"><input type="radio" v-model="myChoice" value="scissor"> 가위</label>
-            <label class="radio-label"><input type="radio" v-model="myChoice" value="rock"> 바위</label>
-            <label class="radio-label"><input type="radio" v-model="myChoice" value="paper"> 보</label>
+            <label class="radio-label" v-for="select in selects" :key="select.value">
+              <input type="radio"
+                     v-model="myChoice"
+                     :value="select.value"> {{ select.name }}
+            </label>
           </div>
         </div>
         <div class="row">
@@ -67,9 +69,12 @@
     <div class="row">
       <div class="small-12 columns log">
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li v-for="log in logs" :key="log"
+          :class="{
+            'win-log': log.winner === 'me',
+            'defeat-log': log.winner === 'com',
+            'draw-log': log.winner === 'no one'
+          }">{{ log.message}}</li>
         </ul>
       </div>
     </div>
@@ -87,7 +92,13 @@ export default {
       count: 3,
       lifeOfMe: 3,
       lifeOfCom: 3,
-      isSelectable: true
+      isSelectable: true,
+      logs: [],
+      selects: [
+        { name: '가위', value: 'scissor'},
+        { name: '바위', value: 'rock'},
+        { name: '보', value: 'paper'}
+      ]
     }
   },
   computed: {
@@ -112,6 +123,17 @@ export default {
         this.whoIsWin()
         this.count = 3
         this.isSelectable = true
+        this.updateLogs()
+      }
+    },
+    lifeOfMe(newVal) {
+      if (newVal === 0) {
+        this.endGame('졌습니다')
+      }
+    },
+    lifeOfCom(newVal) {
+      if (newVal === 0) {
+        this.endGame('이겼습니다')
       }
     }
   },
@@ -153,6 +175,24 @@ export default {
       // 생명하트 차감
       if (this.winner === 'me') this.lifeOfCom--
       else if (this.winner === 'com') this.lifeOfMe--
+    },
+    endGame (msg) {
+     setTimeout(() => {
+       alert(msg)
+       this.lifeOfMe = 3
+       this.lifeOfCom = 3
+       this.myChoice = null
+       this.comChoice = null
+       this.winner = null
+       this.logs = []
+     }, 500)
+    },
+    updateLogs() {
+      let log = {
+        message: `you: ${this.myChoice}, computer: ${this.comChoice}`,
+        winner: this.winner
+      }
+      this.logs.unshift(log)
     }
   }
 }

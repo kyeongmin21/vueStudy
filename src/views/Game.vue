@@ -3,7 +3,7 @@
     <div class="row">
       <div class="small-5 columns text-center">
         <img :src="myChoiceImg" alt="가위바위보 이미지" class="text-center">
-        <h1 class="text-center"><strong>YOU</strong></h1>
+        <h1 class="text-center"><strong>Min</strong></h1>
       </div>
       <div class="small-2 columns text-center">
         <h1 style="font-size:100px;"><strong>{{ count }}</strong></h1>

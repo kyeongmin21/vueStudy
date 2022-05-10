@@ -33,6 +33,8 @@
       <li><router-link to="/axios">24. Axios</router-link></li>
       <li><router-link to="/game">25. Game</router-link></li>
 
+      <li><router-link to="/board">26. Board</router-link></li>
+
     </ul>
   </div>
 </template>

@@ -139,6 +139,11 @@ const routes = [
     path: '/board',
     name: 'Board',
     component: () => import(/* webpackChunkName: "board" */ '@/views/Board.vue')
+  },
+  {
+    path: '/todos',
+    name: 'Todo',
+    component: () => import(/* webpackChunkName: "todos" */ '@/views/Todo.vue')
   }
 ]
 

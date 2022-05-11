@@ -32,6 +32,7 @@
       <li><router-link to="/login">23. Login</router-link></li>
       <li><router-link to="/axios">24. Axios</router-link></li>
       <li><router-link to="/game">25. Game</router-link></li>
+      <li><router-link to="/todos">26. Todo</router-link></li>
 
       <li><router-link to="/board">26. Board</router-link></li>
 

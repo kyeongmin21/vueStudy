@@ -1,7 +1,13 @@
 <template>
   <div>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="memo" placeholder="memo를 입력해주세요."></textarea>
-    <b-button class="text-left mt-2 d-block" @click="listAdd">할일 추가</b-button>
+    <textarea class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="4"
+              v-model="memo">
+    </textarea>
+    <b-button class="text-left mt-2 d-block"
+              @click="listAdd">할일 추가
+    </b-button>
   </div>
 </template>
 
@@ -16,11 +22,10 @@ export default {
   methods: {
     listAdd () {
       if (this.memo === null) {
-        alert('memo를 입력해주세요')
+        alert('memo를 입력해주세요.')
       } else {
         this.$emit('listAdd', this.memo)
       }
-
     }
   }
 }

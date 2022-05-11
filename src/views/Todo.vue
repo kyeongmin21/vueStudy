@@ -2,8 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-6">
-        {{ todoList }}
-        <List/>
+        <List :todoList="todoList"/>
       </div>
       <div class="col-6">
         <ListAdd @listAdd="listAdd"/>
@@ -30,7 +29,7 @@ export default {
   },
   methods: {
     listAdd (memo) {
-      this.todoList.push({ memo: memo, status: 'created' })
+      this.todoList.push({memo: memo, status: 'crated'})
     }
   }
 }

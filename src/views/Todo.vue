@@ -2,10 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="col-6">
+        {{ todoList }}
         <List/>
       </div>
       <div class="col-6">
-        <ListAdd/>
+        <ListAdd @listAdd="listAdd"/>
       </div>
     </div>
 
@@ -21,6 +22,16 @@ export default {
   components: {
     List,
     ListAdd
+  },
+  data() {
+    return {
+      todoList: []
+    }
+  },
+  methods: {
+    listAdd (memo) {
+      this.todoList.push({ memo: memo, status: 'created' })
+    }
   }
 }
 </script>

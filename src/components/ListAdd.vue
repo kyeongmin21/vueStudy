@@ -5,7 +5,7 @@
               rows="4"
               v-model="memo">
     </textarea>
-    <b-button class="text-left mt-2 d-block"
+    <b-button class="text-left mt-2 d-inline"
               @click="listAdd">할일 추가
     </b-button>
   </div>

@@ -54,7 +54,6 @@ export default {
 .todoBtn {
   display: flex;
 }
-
 button {
   flex: 1;
   width: 70px;
@@ -64,7 +63,6 @@ button {
   margin: 5px;
   border-radius: 10px;
 }
-
 .done {
   background-color: rgba(0, 0, 0, .1);
 }

@@ -1,69 +1,58 @@
 <template>
   <div>
-    <div class="card mb-2 p-2"
-         :class="{ done: list.status === 'done' }"
-         v-for="(list, idx) in todoList"
-         :key="idx">
-      <span>할일 : {{ list.memo }}</span>
+    <b-card class="pa-2 mb-2 mr-2"
+            v-for="(list, idx) in todoList"
+            :key="idx"
+            :class="{ done: list.status === 'done' }">
+      <p>할일 : {{ list.memo }}</p>
 
-      <div class="todoBtn">
-        <button v-if="list.status === 'created'"
-                @click="completeBtn(idx)"
-                class="btn-outline-success inline">완료
-        </button>
-        <button v-else
-                @click="restoreBtn(idx)"
-                class="btn-outline-warning">부활
-        </button>
-        <button @click="deleteBtn(idx)"
-                class="btn-outline-danger">제거
-        </button>
-        <button v-if="list.status === 'created'"
-                @click="editBtn(idx)">수정
-        </button>
-      </div>
-
-    </div>
+      <b-button v-if="list.status === 'created'"
+                variant="outline-success"
+                @click="completeBtn(idx)">완료
+      </b-button>
+      <b-button v-if="list.status === 'done'"
+                variant="outline-warning"
+                @click="restoreBtn(idx)">부활
+      </b-button>
+      <b-button variant="outline-danger"
+                @click="removeBtn(idx)">제거
+      </b-button>
+      <b-button v-if="list.status === 'created'"
+                variant="outline-info"
+                @click="listEdit(list.memo, idx)">수정
+      </b-button>
+    </b-card>
   </div>
 </template>
 
 <script>
+import {eventBus} from "../main"
+
 export default {
   name: "List",
   props: {
     todoList: Array
   },
   methods: {
-    completeBtn (idx) {
+    completeBtn(idx) {
       this.$emit('complete', idx, 'done')
     },
-    restoreBtn (idx) {
+    restoreBtn(idx) {
       this.$emit('restore', idx, 'created')
     },
-    deleteBtn (idx) {
-      this.$emit('listDelete', idx)
+    removeBtn(idx) {
+      this.$emit('remove', idx)
     },
-    editBtn (idx) {
-      console.log(idx)
+    listEdit(memo, idx) {
+      // 이벤트버스의 listEdit한테 값을 넘겨 줌
+      eventBus.listEdit(memo, idx)
     }
   }
 }
 </script>
 
 <style scoped>
-.todoBtn {
-  display: flex;
-}
-button {
-  flex: 1;
-  width: 70px;
-  display: inline-block;
-  padding: 5px;
-  border: 1px solid #dadada;
-  margin: 5px;
-  border-radius: 10px;
-}
 .done {
-  background-color: rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 </style>

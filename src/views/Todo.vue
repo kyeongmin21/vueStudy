@@ -5,10 +5,11 @@
         <List :todoList="todoList"
               @complete="complete"
               @restore="restore"
-              @listDelete="listDelete"/>
+              @remove="remove"/>
       </div>
       <div class="col-6">
-        <ListAdd @listAdd="listAdd"/>
+        <ListAdd @listAdd="listAdd"
+                 @listEdit="listEdit"/>
       </div>
     </div>
 
@@ -35,15 +36,16 @@ export default {
       this.todoList.push({memo: memo, status: 'created'})
     },
     complete(idx, status) {
-      console.log(status)
       this.todoList[idx].status = status
     },
     restore(idx, status) {
-      console.log(status)
       this.todoList[idx].status = status
     },
-    listDelete (idx) {
+    remove(idx) {
       this.todoList.splice(idx, 1)
+    },
+    listEdit(memo, idx) {
+      this.todoList[idx].memo = memo
     }
   }
 }

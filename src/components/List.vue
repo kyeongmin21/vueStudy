@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import {eventBus} from "../main"
+import EventBus from '@/eventbus'
 
 export default {
   name: "List",
@@ -44,9 +44,9 @@ export default {
       this.$emit('remove', idx)
     },
     listEdit(memo, idx) {
-      // 이벤트버스의 listEdit한테 값을 넘겨 줌
-      eventBus.listEdit(memo, idx)
+      EventBus.$emit('listEdit', memo, idx)
     }
+
   }
 }
 </script>

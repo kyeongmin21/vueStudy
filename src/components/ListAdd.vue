@@ -9,15 +9,15 @@
               @click="listAdd">할일 추가
     </b-button>
     <b-button class="text-left mt-2 d-inline"
-              v-else
-              @click="listEdit">할일 수정
+              @click="listEdit"
+              v-else>할일 수정
     </b-button>
 
   </div>
 </template>
 
 <script>
-import {eventBus} from "../main"
+import EventBus from '@/eventbus'
 
 export default {
   name: "ListAdd",
@@ -29,8 +29,7 @@ export default {
     }
   },
   created() {
-    // 수정 버튼 누르면 수정할 수 있게 memo 데이터 넘겨줌
-    eventBus.$on('listEdit', (memo, idx) => {
+    EventBus.$on('listEdit', (memo, idx) => {
       this.memo = memo
       this.idx = idx
       this.mode = 'edit'
@@ -45,9 +44,9 @@ export default {
         this.memo = null
       }
     },
-    listEdit() {
+    listEdit () {
       if (this.memo === null) {
-        alert('메모를 입력해주세요.')
+        alert('메모를 입력해주세요')
       } else {
         this.$emit('listEdit', this.memo, this.idx)
         this.memo = null

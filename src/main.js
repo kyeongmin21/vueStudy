@@ -14,16 +14,6 @@ library.add(fas)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 
-// todoList 이벤트 버스
-export const eventBus = new Vue({
-  methods: {
-    listEdit(memo, idx) {
-      // listEdit 이벤트 이름으로 보내겠다!
-      this.$emit('listEdit', memo, idx)
-    }
-  }
-})
-
 Vue.use(BootstrapVue)
 new Vue({
   router,

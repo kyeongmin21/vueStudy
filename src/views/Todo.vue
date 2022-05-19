@@ -12,7 +12,6 @@
                  @listEdit="listEdit"/>
       </div>
     </div>
-
   </div>
 </template>
 

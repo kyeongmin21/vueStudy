@@ -9,7 +9,7 @@
               @click="listAdd">할일 추가
     </b-button>
     <b-button class="text-left mt-2 d-inline"
-              @click="listEdit"
+              @click="listEditDelivery"
               v-else>할일 수정
     </b-button>
 
@@ -31,7 +31,6 @@ export default {
   // List에서 수정버튼 누르면 ListAdd로 memo 값 전달하기
   created() {
     EventBus.$on('listEdit', (memo, idx) => {
-      console.log('aaa')
       this.memo = memo
       this.idx = idx
       this.mode = 'edit'
@@ -47,11 +46,11 @@ export default {
       }
     },
     // 다시 부모한테 수정한 값 보내기
-    listEdit () {
+    listEditDelivery () {
       if (this.memo === null) {
         alert('메모를 입력해주세요')
       } else {
-        this.$emit('listEdit', this.memo, this.idx)
+        this.$emit('listEditDelivery', this.memo, this.idx)
         this.memo = null
         this.mode = 'add'
       }

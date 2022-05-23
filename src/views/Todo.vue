@@ -9,7 +9,7 @@
       </div>
       <div class="col-6">
         <ListAdd @listAdd="listAdd"
-                 @listEdit="listEdit"/>
+                 @listEditDelivery="listEditDelivery"/>
       </div>
     </div>
   </div>
@@ -43,7 +43,7 @@ export default {
     remove(idx) {
       this.todoList.splice(idx, 1)
     },
-    listEdit(memo, idx) {
+    listEditDelivery(memo, idx) {
       this.todoList[idx].memo = memo
     }
   }

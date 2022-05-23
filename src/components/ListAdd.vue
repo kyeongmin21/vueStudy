@@ -28,8 +28,10 @@ export default {
       mode: 'add'
     }
   },
+  // List에서 수정버튼 누르면 ListAdd로 memo 값 전달하기
   created() {
     EventBus.$on('listEdit', (memo, idx) => {
+      console.log('aaa')
       this.memo = memo
       this.idx = idx
       this.mode = 'edit'
@@ -44,6 +46,7 @@ export default {
         this.memo = null
       }
     },
+    // 다시 부모한테 수정한 값 보내기
     listEdit () {
       if (this.memo === null) {
         alert('메모를 입력해주세요')

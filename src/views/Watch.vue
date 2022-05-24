@@ -37,7 +37,7 @@ export default {
       text: '',
       msg: 'Hello Vue!',
       value: 0,
-      changeValue: '',
+      changeValue: ''
     };
   },
   methods: {
